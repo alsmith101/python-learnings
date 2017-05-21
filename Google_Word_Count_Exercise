@@ -1,0 +1,36 @@
+"""Wordcount exercise
+Google's Python class
+
+The main() below is already defined and complete. It calls print_words()
+and print_top() functions which you write.
+
+1. For the --count flag, implement a print_words(filename) function that counts
+how often each word appears in the text and prints:
+word1 count1
+word2 count2
+"""
+
+def word_count(filename):
+
+  Word_Counting = {}
+
+  Input_file = open(filename, 'r')
+  
+  for line in Input_file:
+    words = line.split()
+    for word in words:
+      word = word.lower()
+      if not word in Word_Counting:
+        Word_Counting[word] = 1
+      else:
+        Word_Counting[word] = Word_Counting[word] + 1
+  return Word_Counting
+
+
+def print_words(filename):
+  
+  Word_Counting = word_count(filename)
+  words = sorted(Word_Counting.keys()) 
+  
+  for word in words:
+    print('Word {0} counts {1}'.format(word, Word_Counting[word]))
