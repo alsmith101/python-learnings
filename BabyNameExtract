@@ -1,0 +1,40 @@
+"""
+- Extract the baby names and rank numbers and just print them
+- Get the names data into a dict
+
+
+Here's what the html looks like in the baby.html files:
+...
+<h3 align="center">Popularity in 1990</h3>
+....
+<tr align="right"><td>1</td><td>Michael</td><td>Jessica</td>
+<tr align="right"><td>2</td><td>Christopher</td><td>Ashley</td>
+<tr align="right"><td>3</td><td>Matthew</td><td>Brittany</td>
+
+""
+
+import sys
+import re
+
+def extract_name(filename):
+
+  File = open(filename, 'rU')
+  text = File.read()
+  names = re.findall(r'<td>(\d+)</td><td>(\w+)</td>\<td>(\w+)</td>', text)
+  names_ranked = {}
+  for name in names:
+    (rank, boy_name, girl_name) = name
+    if boy_name not in names_ranked:
+      names_ranked[boy_name] = rank
+    if girl_name not in names_ranked:
+      names_ranked[girl_name] = rank
+  return names_ranked
+
+
+args= sys.argv[1:]
+
+names_ranked = extract_name(args[0])
+print (names_ranked)
+
+names = extract_name(args[0])
+print (names)
