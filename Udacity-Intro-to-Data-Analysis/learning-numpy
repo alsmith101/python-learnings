@@ -1,0 +1,36 @@
+countries = ['england', 'ireland', 'scotland', 'wales', 'france', 'spain', 'andorra', 'gibralta']
+employmentRate = [92, 10, 63, 87, 94, 10, 28, 98]
+
+'''get the country with the maximum employment rate!'''
+
+'''First using regular Python'''
+
+max_country = None
+max_employment_rate = 0
+
+for i in range(len(countries)):
+    country = countries[i]
+    employment = employmentRate[i]
+    
+    if employmentRate[i] > max_employment_rate:
+        max_employment_rate = employment
+        max_country = country
+
+print(max_employment_rate, max_country)
+
+--output: 98, 'gibralta'
+
+'''now using numpy'''
+
+import numpy as py
+
+countries = py.array(['england', 'ireland', 'scotland', 'wales', 'france', 'spain', 'andorra', 'gibralta'])
+employment = py.array([92, 10, 63, 87, 94, 10, 28, 98])
+
+def maxEmployment(countries, employmentRate):
+    position = employment.argmax()
+    return countries[position]
+
+maxEmployment(countries, employment)
+
+--output: 'gibralta'
