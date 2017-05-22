@@ -21,7 +21,7 @@ def extract_year(filename):
   years = []
   Year_string = re.search(r'Popularity\sin\s(\d\d\d\d)', text)
   if not Year_string:
-    sys.stderr.write('couldn\'t fine the year!\n')
+    sys.stderr.write('couldn\'t find the year!\n')
     sys.exit(1)
   year = Year_string.group(1)
   return year
