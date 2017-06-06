@@ -2,7 +2,7 @@
 '''
 Write a function that takes in two series, life expectancy and GDP in 2007
 
-Do life expectancy and GDP correlate.
+Do life expectancy and GDP correlate?
 i.e.When a country has a life expectancy above the mean, is the GDP also above? and vice versa.
 '''
 
